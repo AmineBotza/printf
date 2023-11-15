@@ -1,14 +1,15 @@
-#include<main.h>
+#include"main.h"
 /**
   * _printf - print to std output formatted text
-  *
+  * putss - prints the number of bytes
   *@format: format specifier
-  *
+  *@c: string input
   *Return: number of bytes printed
   */
-int _printf(cont char *format, ...)
+int putss(char *c);
+int _printf(const char *format, ...)
 {
-	unsigned int i, s_count, count = 0;
+	unsigned int i, count_stg, count = 0;
 
 	va_list args;
 
@@ -22,13 +23,13 @@ int _printf(cont char *format, ...)
 		}
 		else if (format[i + 1] == 'c')
 		{
-			_putchar(va_ar(args, int));
+			_putchar(va_arg(args, int));
 		}
 		else if (format[i + 1] == 's')
 		{
-			s_count = putss(va_arg(args, char *));
+			count_stg = putss(va_arg(args, char *));
 			i++;
-			count += (s_count - 1);
+			count += (count_stg - 1);
 		}
 		else if (format[i + 1] == '%')
 		{
