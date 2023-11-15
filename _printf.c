@@ -1,12 +1,11 @@
 #include"main.h"
 /**
   * _printf - print to std output formatted text
-  * putss - prints the number of stings
+  *
   *@format: format specifier
-  *@c: sting input
+  *
   *Return: number of bytes printed
   */
-int putss(char *c);
 int _printf(const char *format, ...)
 {
 	unsigned int i, count_stg, count = 0;
