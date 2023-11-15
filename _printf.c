@@ -1,9 +1,9 @@
 #include"main.h"
 /**
   * _printf - print to std output formatted text
-  * putss - prints the number of bytes
+  * putss - prints the number of stings
   *@format: format specifier
-  *@c: string input
+  *@c: sting input
   *Return: number of bytes printed
   */
 int putss(char *c);
@@ -12,6 +12,8 @@ int _printf(const char *format, ...)
 	unsigned int i, count_stg, count = 0;
 
 	va_list args;
+
+	if (!format || (format[0] == '%' && format[1] == '\0'))
 
 	va_start(args, format);
 
@@ -24,18 +26,19 @@ int _printf(const char *format, ...)
 		else if (format[i + 1] == 'c')
 		{
 			_putchar(va_arg(args, int));
+			i++;
 		}
 		else if (format[i + 1] == 's')
 		{
 			count_stg = putss(va_arg(args, char *));
 			i++;
-			count += (count_stg - 1);
+			count += count_stg;
 		}
 		else if (format[i + 1] == '%')
 		{
 			_putchar('%');
+			i++;
 		}
-		count += 1;
 	}
 	va_end(args);
 	return (count);
